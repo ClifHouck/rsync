@@ -1340,6 +1340,12 @@ char *alt_dest_opt(int type)
 	}
 }
 
+static void enforce_maximums() {
+	if (io_buffer_size > MAX_IO_BUFFER_SIZE) {
+		io_buffer_size = MAX_IO_BUFFER_SIZE;
+	}
+}
+
 /**
  * Process command line arguments.  Called on both local and remote.
  *
@@ -2497,6 +2503,8 @@ int parse_arguments(int *argc_p, const char ***argv_p)
 	else if (old_style_args || filesfrom_host != NULL)
 		trust_sender_args = 1;
 
+	enforce_maximums();
+
 	am_starting_up = 0;
 
 	return 1;
@@ -2509,7 +2517,6 @@ int parse_arguments(int *argc_p, const char ***argv_p)
 		poptFreeContext(pc);
 	return 0;
 }
-
 
 static char SPLIT_ARG_WHEN_OLD[1];
 
