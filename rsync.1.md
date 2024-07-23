@@ -472,6 +472,8 @@ has its own detailed description later in this manpage.
 --checksum-choice=STR    choose the checksum algorithm (aka --cc)
 --one-file-system, -x    don't cross filesystem boundaries
 --block-size=SIZE, -B    force a fixed checksum block-size
+--io-buffer-size=SIZE    set io buffer size in bytes
+--map-size=SIZE          set map size in bytes
 --rsh=COMMAND, -e        specify the remote shell to use
 --rsync-path=PROGRAM     specify the rsync to run on remote machine
 --existing               skip creating new files on receiver
@@ -2124,6 +2126,16 @@ expand it.
 
     Beginning in 3.2.3 the SIZE can be specified with a suffix as detailed in
     the [`--max-size`](#opt) option.  Older versions only accepted a byte count.
+
+0. `--io-buffer-size=SIZE`
+
+    Sets the allocation size of rsync's IO buffers in bytes. If not specified,
+    a predefined default is used.
+
+0. `--map-size=SIZE`
+
+    Sets the read size of memory mapped files in bytes. If not specified,
+    a predefined default is used.
 
 0.  `--rsh=COMMAND`, `-e`
 
