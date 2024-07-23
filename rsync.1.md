@@ -2132,6 +2132,11 @@ expand it.
     Sets the allocation size of rsync's IO buffers in bytes. If not specified,
     a predefined default is used.
 
+0. `--map-size=SIZE`
+
+    Sets the read size of memory mapped files in bytes. If not specified,
+    a predefined default is used.
+
 0.  `--rsh=COMMAND`, `-e`
 
     This option allows you to choose an alternative remote shell program to use
