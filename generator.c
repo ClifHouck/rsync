@@ -92,6 +92,7 @@ extern int max_delete;
 extern int force_delete;
 extern int one_file_system;
 extern int skipped_deletes;
+extern int map_size;
 extern dev_t filesystem_dev;
 extern mode_t orig_umask;
 extern uid_t our_uid;
@@ -776,7 +777,7 @@ static int generate_and_send_sums(int fd, OFF_T len, int f_out, int f_copy)
 		return 0;
 
 	if (len > 0)
-		mapbuf = map_file(fd, len, MAX_MAP_SIZE, sum.blength);
+		mapbuf = map_file(fd, len, map_size, sum.blength);
 	else
 		mapbuf = NULL;
 

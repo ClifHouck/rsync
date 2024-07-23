@@ -473,6 +473,7 @@ has its own detailed description later in this manpage.
 --one-file-system, -x    don't cross filesystem boundaries
 --block-size=SIZE, -B    force a fixed checksum block-size
 --io-buffer-size=SIZE    set io buffer size in bytes
+--map-size=SIZE          set map size in bytes
 --rsh=COMMAND, -e        specify the remote shell to use
 --rsync-path=PROGRAM     specify the rsync to run on remote machine
 --existing               skip creating new files on receiver

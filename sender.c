@@ -49,6 +49,7 @@ extern int inplace_partial;
 extern int batch_fd;
 extern int write_batch;
 extern int file_old_total;
+extern int map_size;
 extern BOOL want_progress_now;
 extern struct stats stats;
 extern struct file_list *cur_flist, *first_flist, *dir_flist;
@@ -396,7 +397,7 @@ void send_files(int f_in, int f_out)
 		}
 
 		if (st.st_size) {
-			int32 read_size = MAX(s->blength * 3, MAX_MAP_SIZE);
+			int32 read_size = MAX(s->blength * 3, map_size);
 			mbuf = map_file(fd, st.st_size, read_size, s->blength);
 		} else
 			mbuf = NULL;
